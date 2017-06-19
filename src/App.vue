@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <search-box></search-box>
+      <search-box @submit="getUser($event)"></search-box>
     </div>
     <div class="main">
       <div class="col">
@@ -24,6 +24,11 @@ export default {
     SearchBox,
     UserProfile,
     UserRepos
+  },
+  methods: {
+    getUser (query) {
+      this.$store.dispatch('getUser', {query})
+    }
   }
 }
 </script>
