@@ -6,7 +6,7 @@
         <dt>Name:</dt>
         <dd>{{ user.login }}</dd>
         <dt>Created:</dt>
-        <dd>{{ user.created_at }}</dd>
+        <dd>{{ createdAt }}</dd>
       </dl>
       <img v-if="user.avatar_url" :src="user.avatar_url">
     </template>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   computed: {
     user () {
@@ -21,6 +23,10 @@ export default {
     },
     loading () {
       return this.$store.state.loading
+    },
+    createdAt () {
+      return moment(this.user.created_at)
+        .format('MMMM Do YYYY, h:mm:ss a')
     }
   }
 }
