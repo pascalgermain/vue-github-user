@@ -3,9 +3,9 @@ import axios from 'axios'
 const apiUrl = 'https://api.github.com'
 
 export default {
-  getUser (query, callback) {
+  getUser (query, successFn, errorFn) {
     return axios.get(apiUrl + '/users/' + encodeURIComponent(query))
-      .then(response => callback(response.data))
-      .catch(error => console.log('error', error))
+      .then(response => successFn(response.data))
+      .catch(error => { if (typeof errorFn === 'function') errorFn(error) })
   }
 }
