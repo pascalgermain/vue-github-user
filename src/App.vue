@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <div class="header">
+      <search-box></search-box>
+    </div>
+    <div class="main">
+      <div class="col">
+        <user-profile></user-profile>
+      </div>
+      <div class="col">
+        <user-repos></user-repos>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import SearchBox from './components/SearchBox'
+import UserProfile from './components/UserProfile'
+import UserRepos from './components/UserRepos'
 
 export default {
-  name: 'app',
   components: {
-    Hello
+    SearchBox,
+    UserProfile,
+    UserRepos
   }
 }
 </script>
@@ -21,8 +33,22 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.header {
+  line-height: 40px;
+  margin: 20px 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.main {
+  padding: 10px 20px;
+}
+
+.col {
+  float: left;
+  width: 50%;
 }
 </style>
