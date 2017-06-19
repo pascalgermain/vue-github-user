@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="loading">Loading...</div>
-    <template v-else>
+    <template v-else-if="user">
       <dl>
         <dt>Name:</dt>
         <dd>{{ user.login }}</dd>
@@ -14,16 +14,15 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import moment from 'moment'
 
 export default {
   computed: {
-    user () {
-      return this.$store.state.user
-    },
-    loading () {
-      return this.$store.state.loading
-    },
+    ...mapState([
+      'user',
+      'loading'
+    ]),
     createdAt () {
       return moment(this.user.created_at)
         .format('MMMM Do YYYY, h:mm:ss a')
