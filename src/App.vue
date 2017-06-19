@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <search-box @submit="getUser($event)"></search-box>
+      <search-box placeholder="User" @submit="getUser($event)"></search-box>
     </div>
     <div class="main">
       <div class="col">

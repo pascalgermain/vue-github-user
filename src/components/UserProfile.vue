@@ -1,15 +1,53 @@
 <template>
   <div>
-    {{ status }}
+    <div v-if="loading">Loading...</div>
+    <template v-else>
+      <dl>
+        <dt>Name:</dt>
+        <dd>{{ user.login }}</dd>
+        <dt>Created:</dt>
+        <dd>{{ user.created_at }}</dd>
+      </dl>
+      <img v-if="user.avatar_url" :src="user.avatar_url">
+    </template>
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    status () {
-      return this.$store.state.loading ? 'Loading' : 'User profile'
+    user () {
+      return this.$store.state.user
+    },
+    loading () {
+      return this.$store.state.loading
     }
   }
 }
 </script>
+
+<style scoped>
+dl {
+  margin: 0;
+}
+
+dt,
+dd {
+  float: left;
+}
+
+dt {
+  clear: both;
+}
+
+dd {
+  margin: 0 0 8px 8px;
+}
+
+img {
+  display: block;
+  clear: both;
+  width: 200px;
+  height: 200px;
+}
+</style>
