@@ -11,6 +11,7 @@
         <dt>Description:</dt>
         <dd>{{ userRepo.description }}</dd>
       </template>
+      <user-repo-last-issue v-if="userRepo.has_issues" :user-repo="userRepo"></user-repo-last-issue>
     </dl>
     <hr>
   </li>
@@ -18,8 +19,12 @@
 
 <script>
 import moment from 'moment'
+import UserRepoLastIssue from './UserRepoLastIssue'
 
 export default {
+  components: {
+    UserRepoLastIssue
+  },
   props: {
     userRepo: {
       type: Object,
