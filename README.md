@@ -1,6 +1,8 @@
-# vue-github-user
+# Vue GitHub User
 
-> A Vue.js project
+> A Vue.js, Vuex & axios app example.
+
+> http://pascalgermain.github.io/vue-github-user/
 
 ## Build Setup
 

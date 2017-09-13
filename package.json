@@ -1,9 +1,9 @@
 {
   "name": "vue-github-user",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A Vue.js, Vuex & axios app example.",
   "author": "Pascal Germain <pascalgermain@me.com>",
-  "private": true,
+  "homepage": "http://pascalgermain.github.io/vue-github-user",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
